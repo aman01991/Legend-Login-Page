@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <span class="borderLine"></span>
+        <form>
+            <h2>Sign in</h2>
+            <div class="inputBox">
+                <input type="text" id="username" required="required"/>
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="password" required="required"/>
+                <span>Password</span>
+                <i></i>
+            </div>
+
+            <div class="links">
+                <a href="#">Forgot password</a>
+                <a href="#">password</a>
+            </div>
+            <!-- <input type="button" value="Login"/> -->
+            <button class="login-button" id="loginButton" disabled> Login </button>
+        </form>
+    </div>
+
+
+    <script>
+        const emailInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
+
+        emailInput.addEventListener('input', validateinputBox);
+        passwordInput.addEventListener('input', validateinputBox);
+
+        loginButton.addEventListener('mouseover', function() {
+            if (loginButton.disabled) {
+                const randomX = Math.floor(Math.random() * 240);
+                const randomY = Math.floor(Math.random() * 50);
+                loginButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            }
+        });
+
+        function validateinputBox() {
+            if (emailInput.value && passwordInput.value) {
+                loginButton.disabled = false;
+                loginButton.style.transform = 'translate(0, 0)';
+
+            } else {
+                oginButton.disabled = true;
+            }
+        }
+    </script>
+
+</body>
+</html>
